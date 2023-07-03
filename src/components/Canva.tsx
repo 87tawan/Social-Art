@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, MouseEvent } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 export function CanvaPublish() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -7,9 +7,9 @@ export function CanvaPublish() {
 
   useEffect(() => {
     const canvas = canvasRef.current!!;
-    const context = canvas!!.getContext("2d");
+    const context = canvas?.getContext("2d");
 
-    const startDrawing = (e: MouseEvent<HTMLCanvasElement>) => {
+    const startDrawing = (e: MouseEvent) => {
       setIsDrawing(true);
       const rect = canvas.getBoundingClientRect();
       const x = e.clientX - rect.left;
@@ -18,7 +18,7 @@ export function CanvaPublish() {
       context?.moveTo(x, y);
     };
 
-    const draw = (e: MouseEvent<HTMLCanvasElement>) => {
+    const draw = (e: MouseEvent) => {
       if (!isDrawing || e.buttons !== 1) return;
       const rect = canvas.getBoundingClientRect();
       const x = ((e.clientX - rect.left) * canvas.width) / rect.width;
