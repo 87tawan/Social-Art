@@ -12,7 +12,7 @@ export default function Boxing({ children }: BoxingProps) {
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'column',
-        height: '100vh',
+        height: '90vh',
         marginTop: '20px',
         gap: '1rem'
     }}>
